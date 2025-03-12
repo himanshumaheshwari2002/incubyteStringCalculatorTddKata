@@ -1,0 +1,2 @@
+# incubyteStringCalculatorTddKata
+incubyteStringCalculatorTddKata
