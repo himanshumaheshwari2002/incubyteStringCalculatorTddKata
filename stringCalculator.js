@@ -1,27 +1,33 @@
 
-/*  THIRD TEST CASE*/
+/*  FOURTH TEST CASE*/
 
-//  now the third test tase is when we pass  /n deliminator and it should return
-//  sum of all integers we can achieve it using the same last method but updated
-//  split concept by splitting it on /n or , which return array of strings troght
-//  which can iterate whole using map and converting each value to integer by
-//  number.map(NUMBER) and gettinga sum using reduce to iterate through whole array
-//  and get single value
-//  eg - ("1\n2,3") should return 6
+// fourth test case is to handle custom deliminator which can be handle by 
+// just add a check for custom deliminated and inside it split it on behalf 
+// of /n and get the deliminator from first part and number as second part 
+// and now rest remain the same last logic only change is in split case we
+// need to pass the custom deliminator we get from previous check 
+// eg ("//;\n1;2") should return 
 
-/*  THIRD TEST CASE SOLUTION*/
+
+/*  FOURTH TEST CASE SOLUTION*/
 
 function add(numbers) {
     if (numbers === "") return 0;
-    console.log(numbers.split(/[\n,]/));
-    
+    let delimiter = /[\n,]/; 
+
+    if (numbers.startsWith("//")) {
+        const parts = numbers.split("\n");
+        delimiter = new RegExp(parts[0].slice(2)); 
+        numbers = parts[1]; 
+        console.log("parts--" ,parts,"delimiter--",delimiter,"numbers",numbers);
+        
+    }
+
     return numbers
-        .split(/[\n,]/) // Split on comma or newline
+        .split(delimiter)
         .map(Number)
         .reduce((sum, num) => sum + num, 0);
-
 }
 
-let answer = add("1\n2,3")
+let answer = add("//;\n1;2")
 console.log(answer);
-
