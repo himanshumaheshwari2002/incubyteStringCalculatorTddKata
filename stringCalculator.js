@@ -1,13 +1,21 @@
-/*  FIRST TEST CASE*/
+/*  SECOND TEST CASE*/
 
-// our first test case should be an empty string to return a 0  which can directly check inside an if condition
-//eg - "" should return a 0
+//  now the second test tase is when we pass , seperated integers and it should return sum of all
+//  integers which can be achive by using a split method which convert string into an array and
+//  then iterate all numbers inside it using array.map(NUMBERS) method and finally use reduce to 
+//  iterate througn all values and get single value
 
-/*  FIRST TEST CASE SOLUTION*/
+//eg ("1,2,3") should return 6
+
+/*  SECOND TEST CASE SOLUTION*/
 
 function add(numbers) {
     if (numbers === "") return 0;
+    console.log(numbers.split(","));
+    
+    return numbers.split(",").map(Number).reduce((sum, num) => sum + num, 0);
+
 }
 
-let answer = add("")
+let answer = add("1,2,3")
 console.log(answer);
