@@ -1,21 +1,27 @@
-/*  SECOND TEST CASE*/
 
-//  now the second test tase is when we pass , seperated integers and it should return sum of all
-//  integers which can be achive by using a split method which convert string into an array and
-//  then iterate all numbers inside it using array.map(NUMBERS) method and finally use reduce to 
-//  iterate througn all values and get single value
+/*  THIRD TEST CASE*/
 
-//eg ("1,2,3") should return 6
+//  now the third test tase is when we pass  /n deliminator and it should return
+//  sum of all integers we can achieve it using the same last method but updated
+//  split concept by splitting it on /n or , which return array of strings troght
+//  which can iterate whole using map and converting each value to integer by
+//  number.map(NUMBER) and gettinga sum using reduce to iterate through whole array
+//  and get single value
+//  eg - ("1\n2,3") should return 6
 
-/*  SECOND TEST CASE SOLUTION*/
+/*  THIRD TEST CASE SOLUTION*/
 
 function add(numbers) {
     if (numbers === "") return 0;
-    console.log(numbers.split(","));
+    console.log(numbers.split(/[\n,]/));
     
-    return numbers.split(",").map(Number).reduce((sum, num) => sum + num, 0);
+    return numbers
+        .split(/[\n,]/) // Split on comma or newline
+        .map(Number)
+        .reduce((sum, num) => sum + num, 0);
 
 }
 
-let answer = add("1,2,3")
+let answer = add("1\n2,3")
 console.log(answer);
+
